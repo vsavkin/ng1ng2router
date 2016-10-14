@@ -1,4 +1,4 @@
-import {Message, Repository} from '../repository';
+import {Message, Repository} from './repository';
 
 export class MessageController {
   folder: string;

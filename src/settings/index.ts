@@ -1,3 +1,4 @@
+// This module was fully migrated to Angular 2
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';

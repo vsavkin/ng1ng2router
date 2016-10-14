@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Repository} from '../repository'
+import {Repository} from '../messages/repository'
 
 @Component({
   selector: 'page-settings',
