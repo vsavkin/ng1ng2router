@@ -7,9 +7,10 @@ import {UpgradeAdapter} from '@angular/upgrade';
 import {MessagesModule, MessagesNgModule} from './messages';
 import {MenuModule, MenuNgModule} from './menu';
 import {SettingsNgModule} from './settings';
-import {Ng2RouterRoot, createRootModule} from './upgrade_utils';
+import {Ng2RouterRoot, createAngular1RootModule} from './upgrade_utils';
 
 // This URL handling strategy is custom and application-specific.
+// Using it we can tell the Angular 2 router to handle only URL starting with settings.
 class Ng1Ng2UrlHandlingStrategy implements UrlHandlingStrategy {
   shouldProcessUrl(url) { return url.toString().startsWith("/settings"); }
   extract(url) { return url; }
@@ -19,21 +20,32 @@ class Ng1Ng2UrlHandlingStrategy implements UrlHandlingStrategy {
 @NgModule({
   imports: [
     BrowserModule,
+
+    // import all modules
+    MenuNgModule,
     MessagesNgModule,
     SettingsNgModule,
+
+    // We don't need to provide any routes.
+    // The router will collect all routes from all the registerd modules.
     RouterModule.forRoot([], {useHash: true})
   ],
   providers: [
     { provide: UrlHandlingStrategy, useClass: Ng1Ng2UrlHandlingStrategy }
   ],
-  declarations: [Ng2RouterRoot]
+
+  declarations: [Ng2RouterRoot] // required
 })
 class AppModule {}
+
+// Creating an adapter passing it to all the modules
 const adapter = new UpgradeAdapter(AppModule);
 MenuNgModule.setAdapter(adapter);
 MessagesNgModule.setAdapter(adapter);
+SettingsNgModule.setAdapter(adapter);
 
-createRootModule(adapter, ['ngRoute', MessagesModule.name, MenuModule.name]);
+// create Angular1 root module
+createAngular1RootModule(adapter, ['ngRoute', MessagesModule.name, MenuModule.name]);
 
 export function bootstrap(el) {
   const ref = adapter.bootstrap(el, ['rootModule']);
