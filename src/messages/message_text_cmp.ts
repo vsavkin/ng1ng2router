@@ -6,6 +6,6 @@ import {Component, Input} from '@angular/core';
     <p><b>Text:</b> {{text}}</p>
   `
 })
-export class MessageText {
+export class MessageTextCmp {
   @Input() text: string;
 }

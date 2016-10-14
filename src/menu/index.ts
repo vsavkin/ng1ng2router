@@ -1,19 +1,20 @@
 import * as angular from 'angular';
-import 'angular-route'
+import {NgModule} from '@angular/core';
+import {UpgradeAdapter} from '@angular/upgrade';
+
+import {MenuCmp} from './menu_cmp';
 
 export const MenuModule = angular.module('MenuModule', ['ngRoute']);
 
-MenuModule.component('menu', {
-  template : `
-    <h1>Messages</h1>
-    <ul>
-      <li><a href="#/messages/inbox">Inbox</a></li>
-      <li><a href="#/settings">Settings</a></li>
-    </ul>
-  `
-});
+MenuModule.component('menu', MenuCmp);
 
 MenuModule.config(($routeProvider) => {
-  $routeProvider
-    .when('/',     {template : '<menu></menu>'});
+  $routeProvider.when('/', {template : '<menu></menu>'});
 });
+
+@NgModule({})
+export class MenuNgModule {
+  static setAdapter(adapter: UpgradeAdapter) {
+    //no components are migrated to angular2
+  }
+}
