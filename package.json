@@ -1,0 +1,38 @@
+{
+  "name": "Ng1Ng2Upgrade",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+	"start": "webpack-dev-server",
+	"build": "webpack -p"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@angular/common": "2.1.0",
+    "@angular/compiler": "2.1.0",
+    "@angular/core": "2.1.0",
+    "@angular/forms": "2.1.0",
+    "@angular/platform-browser": "2.1.0",
+    "@angular/platform-browser-dynamic": "2.1.0",
+    "@angular/upgrade": "2.1.0",
+    "@angular/router": "3.1.0",
+    "angular": "^1.5.8",
+    "angular-route": "1.5.8",
+    "core-js": "^2.4.1",
+    "rxjs": "^5.0.0-beta.12",
+    "zone.js": "^0.6.12"
+  },
+  "devDependencies": {
+    "@types/angular": "^1.5.8",
+    "@types/angular-route": "*",
+    "clang-format": "^1.0.32",
+    "ts-loader": "^0.8.2",
+    "typescript": "^2.0.0",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1",
+    "webpack-livereload-plugin": "^0.8.1"
+  }
+}
