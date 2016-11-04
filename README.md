@@ -4,8 +4,6 @@
 
 - clone this repo
 - `npm install`
-- `rm node_modules/@angular/router`
-- `npm install angular-router-3.1.0.tgz`
 - `npm start`
 - open `localhost:8080`
 
@@ -34,7 +32,7 @@ Every module defintes components, services, and routes. In addition every module
 
 These are the routes the application supports:
 
-* /id
+* /
 * /messages/:folder
 * /messages/:folder/:id
 * /settings

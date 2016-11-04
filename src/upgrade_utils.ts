@@ -6,7 +6,7 @@ import 'angular-route'
 import {NgModule, Component} from '@angular/core';
 import {Router, RouterModule, UrlHandlingStrategy} from '@angular/router';
 import {BrowserModule} from '@angular/platform-browser';
-import {UpgradeAdapter} from '@angular/upgrade';
+import {downgradeComponent} from '@angular/upgrade/static';
 
 // modules
 import {MessagesModule, MessagesNgModule} from './messages';
@@ -17,13 +17,14 @@ import {SettingsNgModule} from './settings';
 @Component({selector : 'ng2-router-root', template: `<router-outlet></router-outlet>`})
 export class Ng2RouterRoot {}
 
-export function createAngular1RootModule(adapter: UpgradeAdapter, moduleNames: string[]) {
+export function createAngular1RootModule(moduleNames: string[]) {
   const RootModule = angular.module('rootModule', moduleNames);
 
   RootModule.component('rootCmp', {template : '<div class="ng-view"></div>'});
-  RootModule.directive('ng2RouterRoot', <any>adapter.downgradeNg2Component(Ng2RouterRoot));
+  RootModule.directive('ng2RouterRoot', <any>downgradeComponent({
+    component: Ng2RouterRoot
+  }));
   RootModule.config(($routeProvider) => {
-
     // telling the Angular 1 router to render the placeholder
     $routeProvider
       .otherwise({template : '<ng2-router-root></ng2-router-root>', reloadOnSearch: false});

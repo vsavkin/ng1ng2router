@@ -1,7 +1,9 @@
 import {NgModule} from '@angular/core';
 import {Router, RouterModule, UrlHandlingStrategy} from '@angular/router';
 import {BrowserModule} from '@angular/platform-browser';
-import {UpgradeAdapter} from '@angular/upgrade';
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import {UpgradeModule} from '@angular/upgrade/static';
+
 
 // modules
 import {MessagesModule, MessagesNgModule} from './messages';
@@ -19,6 +21,7 @@ class Ng1Ng2UrlHandlingStrategy implements UrlHandlingStrategy {
 
 @NgModule({
   imports: [
+    UpgradeModule,
     BrowserModule,
 
     // import all modules
@@ -38,20 +41,13 @@ class Ng1Ng2UrlHandlingStrategy implements UrlHandlingStrategy {
 })
 class AppModule {}
 
-// Creating an adapter passing it to all the modules
-const adapter = new UpgradeAdapter(AppModule);
-MenuNgModule.setAdapter(adapter);
-MessagesNgModule.setAdapter(adapter);
-SettingsNgModule.setAdapter(adapter);
-
 // create Angular1 root module
-createAngular1RootModule(adapter, ['ngRoute', MessagesModule.name, MenuModule.name]);
+const rootModule = createAngular1RootModule(['ngRoute', MessagesModule.name, MenuModule.name]);
 
 export function bootstrap(el) {
-  const ref = adapter.bootstrap(el, ['rootModule']);
-
-  // this is required because of a bug in NgUpgrade
-  setTimeout(() => {
-    ref.ng2Injector.get(Router).initialNavigation();
-  }, 0);
+  platformBrowserDynamic().bootstrapModule(AppModule).then(ref => {
+    const upgrade = ref.injector.get(UpgradeModule) as UpgradeModule;
+    upgrade.bootstrap(el, [rootModule.name]);
+    upgrade.injector.get(Router).initialNavigation();
+  });
 }
