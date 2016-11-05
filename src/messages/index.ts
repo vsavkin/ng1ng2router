@@ -21,14 +21,17 @@ MessagesModule.config(($routeProvider) => {
 });
 
 @NgModule({
+  // components migrated to Angular 2 should be registered here
   declarations: [MessageTextCmp],
+  entryComponents: [MessageTextCmp],
+
   providers: [
     {provide: Repository, useFactory: (m) => m.$injector.get('repository'), deps: [UpgradeModule]}
   ]
 })
 export class MessagesNgModule {}
 
-// all components migrated to angular 2 can be downgraded here
+// components migrated to angular 2 should be downgraded here
 MessagesModule.directive('messageText', <any>downgradeComponent({
   component: MessageTextCmp,
   inputs: ['text']
