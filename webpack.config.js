@@ -1,9 +1,10 @@
 var LiveReloadPlugin = require('webpack-livereload-plugin');
 var webpack = require('webpack');
+var path = require('path');
 
 module.exports = {
   resolve: {
-    extensions: ['', '.scss', '.ts', '.js'],
+    extensions: ['.scss', '.ts', '.js'],
     alias: {
       "@angular/upgrade/static": "@angular/upgrade/bundles/upgrade-static.umd.js"
     }
@@ -17,7 +18,7 @@ module.exports = {
 
   entry: './src/main.ts',
   output: {
-    path: "./dist",
+    path: path.join(process.cwd(), 'dist'),
     publicPath: 'dist/',
     filename: "bundle.js"
   },
