@@ -20,13 +20,17 @@ MessagesModule.config(($routeProvider) => {
     .when('/messages/:folder/:id', {template : '<message></message>'});
 });
 
+export function exportRepository(m: UpgradeModule): Repository {
+  return m.$injector.get('repository');
+}
+
 @NgModule({
   // components migrated to Angular 2 should be registered here
   declarations: [MessageTextCmp],
   entryComponents: [MessageTextCmp],
 
   providers: [
-    {provide: Repository, useFactory: (m) => m.$injector.get('repository'), deps: [UpgradeModule]}
+    {provide: Repository, useFactory: exportRepository, deps: [UpgradeModule]}
   ]
 })
 export class MessagesNgModule {}

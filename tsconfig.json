@@ -1,19 +1,23 @@
 {
   "compilerOptions": {
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "module": "commonjs",
+    "module": "es2015",
+    "moduleResolution": "node",
     "target": "es5",
     "noImplicitAny": false,
-    "sourceMap": false,
+    "sourceMap": true,
+    "mapRoot": "",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
     "lib": [
       "es2015",
       "dom"
-    ]
+    ],
+    "outDir": "lib",
+    "skipLibCheck": true,
+    "rootDir": "."
   },
-  "files": [
-    "src/main.ts",
-    "node_modules/@types/angular/index.d.ts",
-    "node_modules/@types/angular-route/index.d.ts"
-  ]
+  "angularCompilerOptions": {
+    "genDir": "./src/ngfactory",
+    "entryModule": "src/ng2_app#Ng2AppModule"
+  }
 }

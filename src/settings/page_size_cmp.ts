@@ -14,5 +14,5 @@ import {Repository} from '../messages/repository'
   `
 })
 export class PageSizeCmp {
-  constructor(private repository: Repository) {}
+  constructor(public repository: Repository) {}
 }
