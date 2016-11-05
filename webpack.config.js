@@ -3,7 +3,10 @@ var webpack = require('webpack');
 
 module.exports = {
   resolve: {
-    extensions: ['', '.scss', '.ts', '.js']
+    extensions: ['', '.scss', '.ts', '.js'],
+    alias: {
+      "@angular/upgrade/static": "@angular/upgrade/bundles/upgrade-static.umd.js"
+    }
   },
 
   plugins: [
