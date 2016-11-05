@@ -1,4 +1,4 @@
-import {NgModule, Component} from '@angular/core';
+import {NgModule} from '@angular/core';
 import {Router, RouterModule, UrlHandlingStrategy} from '@angular/router';
 import {BrowserModule} from '@angular/platform-browser';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
