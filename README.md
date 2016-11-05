@@ -43,4 +43,4 @@ The first three routes are handled by the Angular 1 router, and the last two are
 
 ### Wiring it Up
 
-See comments in `app.ts` and `upgrade_utils.ts`.
+See comments in `ng2_app.ts` and `main.ts`.
