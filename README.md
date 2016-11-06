@@ -1,4 +1,9 @@
-# Migrating Angular 1 Applications to Angular 2 Using NgUpgrade and Angular Router;
+# Migrating Angular 1 Applications to Angular 2 Using NgUpgrade and Angular Router
+
+## Article
+
+This is an example application for [Migrating Angular 1 Applications to Angular 2 in 5 Simple Steps]
+(https://vsavkin.com/migrating-angular-1-applications-to-angular-2-in-5-simple-steps-40621800a25b#.oj2pbb5de)
 
 ## How to Run
 
