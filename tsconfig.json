@@ -17,7 +17,6 @@
     "rootDir": "."
   },
   "angularCompilerOptions": {
-    "genDir": "./src/ngfactory",
     "entryModule": "src/ng2_app#Ng2AppModule"
   }
 }

@@ -5,6 +5,8 @@
 This is an example application for [Migrating Angular 1 Applications to Angular 2 in 5 Simple Steps]
 (https://vsavkin.com/migrating-angular-1-applications-to-angular-2-in-5-simple-steps-40621800a25b#.oj2pbb5de)
 
+The application shows how to migrate an Angular 1 app to Angular 2 using the Angular 2 router. It uses WebPack 2.0 and AoT compilation.
+
 ## How to Run
 
 - clone this repo
