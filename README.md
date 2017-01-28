@@ -1,4 +1,4 @@
-# Migrating Angular 1 Applications to Angular 2 Using NgUpgrade and Angular Router
+# Migrating Angular 1 Applications to Angular 2.x Using NgUpgrade and Angular Router
 
 ## Article
 
