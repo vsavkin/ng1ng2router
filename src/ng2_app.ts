@@ -4,9 +4,10 @@
 
 // import angular2
 import {NgModule, Component} from '@angular/core';
-import {Router, RouterModule, UrlHandlingStrategy} from '@angular/router';
+import {RouterModule, UrlHandlingStrategy} from '@angular/router';
 import {BrowserModule} from '@angular/platform-browser';
 import {UpgradeModule} from '@angular/upgrade/static';
+import {RouterUpgradeInitializer} from '@angular/router/upgrade';
 
 // import app modules
 import {MessagesNgModule} from './messages';
@@ -41,11 +42,8 @@ export class RootCmp {}
     SettingsNgModule,
 
     // We don't need to provide any routes.
-    // The router will collect all routes from all the registerd modules.
-    RouterModule.forRoot([], {
-      useHash: true,
-      initialNavigation: false // we went to trigger navigation outselves after ng1 is done bootstrapping
-    }),
+    // The router will collect all routes from all the registered modules.
+    RouterModule.forRoot([])
   ],
   providers: [
     { provide: UrlHandlingStrategy, useClass: Ng1Ng2UrlHandlingStrategy }

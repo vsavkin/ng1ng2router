@@ -17,7 +17,7 @@ export const MessageCmp = {
     <h1>Message {{ctrl.id}}</h1>
     <message-text [text]="ctrl.message.text"></message-text>
     <div>
-      <a href="#/messages/{{ctrl.folder}}">Go to Folder</a>
+      <a href="/messages/{{ctrl.folder}}">Go to Folder</a>
     </div>
   `,
   controller : MessageController,

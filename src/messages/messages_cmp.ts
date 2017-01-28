@@ -15,11 +15,11 @@ export const MessagesCmp = {
     <h1>Messages</h1>
     <ul>
       <li ng-repeat="m in ctrl.messages">
-        {{m.id}} - <a href="#/messages/{{ctrl.folder}}/{{m.id}}">{{m.text}}</a>
+        {{m.id}} - <a href="/messages/{{ctrl.folder}}/{{m.id}}">{{m.text}}</a>
       </li>
     </ul>
-    <a href="#/settings/pagesize">Change Page Size</a>
-    <a href="#/">Back</a>
+    <a href="/settings/pagesize">Change Page Size</a>
+    <a href="/">Back</a>
   `,
   controller : MessagesController,
   controllerAs: 'ctrl'
