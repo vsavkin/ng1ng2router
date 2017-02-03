@@ -7,7 +7,6 @@ import {NgModule, Component} from '@angular/core';
 import {RouterModule, UrlHandlingStrategy} from '@angular/router';
 import {BrowserModule} from '@angular/platform-browser';
 import {UpgradeModule} from '@angular/upgrade/static';
-import {RouterUpgradeInitializer} from '@angular/router/upgrade';
 
 // import app modules
 import {MessagesNgModule} from './messages';
@@ -46,7 +45,8 @@ export class RootCmp {}
     RouterModule.forRoot([])
   ],
   providers: [
-    { provide: UrlHandlingStrategy, useClass: Ng1Ng2UrlHandlingStrategy }
+    { provide: UrlHandlingStrategy, useClass: Ng1Ng2UrlHandlingStrategy },
+    { provide: '$scope', useExisting: '$rootScope' } // I have to do this cause we do not provide $scope in the module. Seems to be broken.
   ],
 
   bootstrap: [RootCmp],

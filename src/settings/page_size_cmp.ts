@@ -6,6 +6,8 @@ import {Repository} from '../messages/repository'
   template: `
     <h1>Page Size Settings</h1>
 
+    <ng1cmp></ng1cmp>
+
     <div *ngFor="let p of repository.folders">
       Page size for '{{p}}' <input [(ngModel)]="repository.pageSize[p]"> (<a [routerLink]="['/messages', p]">open</a>)
     </div>
